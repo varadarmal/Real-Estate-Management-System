@@ -1,0 +1,2 @@
+-- No index definitions were included in the uploaded SQL source.
+-- Add indexes here only after you create and test them in PostgreSQL.
