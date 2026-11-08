@@ -1,0 +1,72 @@
+
+erDiagram
+    OWNERS ||--o{ PROPERTIES : owns
+    PROPERTIES ||--o{ UNITS : contains
+    UNITS ||--o{ LEASES : has
+    TENANTS ||--o{ LEASES : signs
+    LEASES ||--o{ RENT_INVOICES : generates
+    RENT_INVOICES ||--o{ PAYMENTS : receives
+    TENANTS ||--o{ MAINTENANCE_REQUESTS : raises
+    UNITS ||--o{ MAINTENANCE_REQUESTS : requires
+
+    OWNERS {
+        int owner_id PK
+        varchar owner_name
+        varchar email
+        varchar phone
+    }
+
+    PROPERTIES {
+        int property_id PK
+        int owner_id FK
+        varchar property_name
+        text address
+        varchar city
+    }
+
+    UNITS {
+        int unit_id PK
+        int property_id FK
+        varchar unit_number
+        numeric monthly_rent
+        varchar status
+    }
+
+    TENANTS {
+        int tenant_id PK
+        varchar tenant_name
+        varchar email
+        varchar phone
+    }
+
+    LEASES {
+        int lease_id PK
+        int unit_id FK
+        int tenant_id FK
+        date start_date
+        date end_date
+        numeric monthly_rent
+    }
+
+    RENT_INVOICES {
+        int invoice_id PK
+        int lease_id FK
+        date billing_period
+        numeric total_amount
+        numeric paid_amount
+    }
+
+    PAYMENTS {
+        int payment_id PK
+        int invoice_id FK
+        numeric amount
+        date payment_date
+    }
+
+    MAINTENANCE_REQUESTS {
+        int request_id PK
+        int tenant_id FK
+        int unit_id FK
+        text description
+        varchar status
+    }
