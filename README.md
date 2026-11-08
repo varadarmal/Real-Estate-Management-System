@@ -168,3 +168,5 @@ GitHub: [varadarmal](https://github.com/varadarmal)
 ---
 
 *This project was developed to strengthen practical SQL, PostgreSQL, and relational database management skills.*
+=======
+

@@ -1,3 +1,8 @@
+-- ==========================================
+-- REAL ESTATE MANAGEMENT SYSTEM
+-- DATABASE INDEXES
+-- ==========================================
+
 -- 1. Properties by owner
 CREATE INDEX IF NOT EXISTS idx_properties_owner
 ON properties(owner_id);
